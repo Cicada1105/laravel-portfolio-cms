@@ -1,4 +1,4 @@
-# Laravel CMS using Balde Views
+# Josh Colvin Laravel Portfolio CMS
 
 This repository is copy of the simple [PHP/Laravel CMS](https://github.com/codeadamca/php-cms-laravel) except the CMS views have been converted from vanilla PHP to Blade.
 
@@ -18,13 +18,5 @@ php artisan migrate:refresh --seed
 
 All user acocunts will have the default password of "password".
 
-## Tutorial Requirements:
-
-* [Visual Studio Code](https://code.visualstudio.com/) or [Brackets](http://brackets.io/) (or any code editor)
-* [Laravel](https://laravel.com/)
-
-Full tutorial URL: https://codeadam.ca/learning/php-cms-laravel.html
-
-<a href="https://codeadam.ca">
-<img src="https://codeadam.ca/images/code-block.png" width="100">
-</a>
+## Notes
+I (Josh Colvin) have worked on this project alone and the work for the laravel project cms is solely done by me
