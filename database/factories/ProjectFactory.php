@@ -21,7 +21,7 @@ class ProjectFactory extends Factory
             'live_url' => $this->faker->url,
             'slug' => $this->faker->slug,
             'content' => $this->faker->paragraph,
-            'user_id' => User::all()->random(),
+            'user_id' => User::all()->random()
         ];
     }
 

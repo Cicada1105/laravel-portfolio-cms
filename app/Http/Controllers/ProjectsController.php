@@ -64,13 +64,15 @@ class ProjectsController extends Controller
                 Rule::unique('projects')->ignore($project->id),
                 'regex:/^[A-z\-]+$/',
             ],
-            'url' => 'nullable|url',
+            'github_url' => 'required',
+            'live_url' => 'nullable|url',
             'content' => 'required'
         ]);
 
         $project->title = $attributes['title'];
         $project->slug = $attributes['slug'];
-        $project->url = $attributes['url'];
+        $project->github_url = $attributes['github_url'];
+        $project->live_url = $attributes["live_url"];
         $project->content = $attributes['content'];
         $project->save();
 

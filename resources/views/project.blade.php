@@ -18,7 +18,7 @@
     <p>View Github Project <a href="{{$project->github_url}}">{{$project->github_url}}</a></p>
 
     @if ($project->live_url)
-        View Live Project: <a href="{{$project->url}}">{{$project->url}}</a>
+        View Live Project: <a href="{{$project->live_url}}">{{$project->live_url}}</a>
     @endif
 
     <p>

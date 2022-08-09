@@ -1,4 +1,4 @@
-@extends ('layout.console')
+@extends ('layout/console')
 
 @section ('content')
 
@@ -21,12 +21,22 @@
         </div>
 
         <div class="w3-margin-bottom">
-            <label for="url">URL:</label>
-            <input type="url" name="url" id="url" value="{{old('url', $project->url)}}">
+            <label for="github_url">Github URL:</label>
+            <input type="url" name="github_url" id="github_url" value="{{old('github_url', $project->gitub_url)}}">
 
-            @if ($errors->first('url'))
+            @if ($errors->first('github_url'))
                 <br>
-                <span class="w3-text-red">{{$errors->first('url')}}</span>
+                <span class="w3-text-red">{{$errors->first('github_url')}}</span>
+            @endif
+        </div>
+
+        <div class="w3-margin-bottom">
+            <label for="live_url">Live URL:</label>
+            <input type="url" name="live_url" id="live_url" value="{{old('live_url', $project->live_url)}}">
+
+            @if ($errors->first('live_url'))
+                <br>
+                <span class="w3-text-red">{{$errors->first('live_url')}}</span>
             @endif
         </div>
 
@@ -50,28 +60,11 @@
             @endif
         </div>
 
-        <div class="w3-margin-bottom">
-            <label for="type_id">Type:</label>
-            <select name="type_id" id="type_id">
-                <option></option>
-                @foreach($types as $type)
-                    <option value="{{$type->id}}"
-                        {{$type->id == old('type_id', $project->type_id) ? 'selected' : ''}}>
-                        {{$type->title}}
-                    </option>
-                @endforeach
-            </select>
-            @if ($errors->first('type_id'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('type_id')}}</span>
-            @endif
-        </div>
-
         <button type="submit" class="w3-button w3-green">Edit Project</button>
 
     </form>
 
-    <a href="/console/projects/list">Back to Project List</a>
+    <a href="/console/projects/list">Back to Projects List</a>
 
 </section>
 

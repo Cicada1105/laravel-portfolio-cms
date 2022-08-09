@@ -1,9 +1,11 @@
 <?php
 
 use App\Models\Project;
+use App\Models\Employment;
+
 use App\Http\Controllers\ConsoleController;
 use App\Http\Controllers\ProjectsController;
-use App\Http\Controllers\TypesController;
+use App\Http\Controllers\EmploymentController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,11 +32,20 @@ Route::get('/project/{project:slug}', function (Project $project) {
     ]);
 })->where('project', '[A-z\-]+');
 
+Route::get('/employment/{employment:slug}', function (Employment $employment) {
+    return view('employment', [
+        'employment' => $employment,
+    ]);
+})->where('employment', '[A-z\-]+');
+
 Route::get('/console/logout', [ConsoleController::class, 'logout'])->middleware('auth');
 Route::get('/console/login', [ConsoleController::class, 'loginForm'])->middleware('guest');
 Route::post('/console/login', [ConsoleController::class, 'login'])->middleware('guest');
 Route::get('/console/dashboard', [ConsoleController::class, 'dashboard'])->middleware('auth');
 
+/****************/
+/*   PROJECTS   */
+/****************/
 Route::get('/console/projects/list', [ProjectsController::class, 'list'])->middleware('auth');
 Route::get('/console/projects/add', [ProjectsController::class, 'addForm'])->middleware('auth');
 Route::post('/console/projects/add', [ProjectsController::class, 'add'])->middleware('auth');
@@ -44,6 +55,9 @@ Route::get('/console/projects/delete/{project:id}', [ProjectsController::class, 
 Route::get('/console/projects/image/{project:id}', [ProjectsController::class, 'imageForm'])->where('project', '[0-9]+')->middleware('auth');
 Route::post('/console/projects/image/{project:id}', [ProjectsController::class, 'image'])->where('project', '[0-9]+')->middleware('auth');
 
+/*************/
+/*   USERS   */
+/*************/
 Route::get('/console/users/list', [UsersController::class, 'list'])->middleware('auth');
 Route::get('/console/users/add', [UsersController::class, 'addForm'])->middleware('auth');
 Route::post('/console/users/add', [UsersController::class, 'add'])->middleware('auth');
@@ -51,9 +65,15 @@ Route::get('/console/users/edit/{user:id}', [UsersController::class, 'editForm']
 Route::post('/console/users/edit/{user:id}', [UsersController::class, 'edit'])->where('user', '[0-9]+')->middleware('auth');
 Route::get('/console/users/delete/{user:id}', [UsersController::class, 'delete'])->where('user', '[0-9]+')->middleware('auth');
 
-Route::get('/console/types/list', [TypesController::class, 'list'])->middleware('auth');
-Route::get('/console/types/add', [TypesController::class, 'addForm'])->middleware('auth');
-Route::post('/console/types/add', [TypesController::class, 'add'])->middleware('auth');
-Route::get('/console/types/edit/{type:id}', [TypesController::class, 'editForm'])->where('type', '[0-9]+')->middleware('auth');
-Route::post('/console/types/edit/{type:id}', [TypesController::class, 'edit'])->where('type', '[0-9]+')->middleware('auth');
-Route::get('/console/types/delete/{type:id}', [TypesController::class, 'delete'])->where('type', '[0-9]+')->middleware('auth');
+/******************/
+/*   EMPLOYMENT   */
+/******************/
+Route::get('/console/employment/list', [EmploymentController::class, 'list'])->middleware('auth');
+Route::get('/console/employment/add', [EmploymentController::class, 'addForm'])->middleware('auth');
+Route::post('/console/employment/add', [EmploymentController::class, 'add'])->middleware('auth');
+Route::get('/console/employment/edit/{employment:id}', [EmploymentController::class, 'editForm'])->where('employment', '[0-9]+')->middleware('auth');
+Route::post('/console/employment/edit/{employment:id}', [EmploymentController::class, 'edit'])->where('employment', '[0-9]+')->middleware('auth');
+Route::get('/console/employment/delete/{employment:id}', [EmploymentController::class, 'delete'])->where('employment', '[0-9]+')->middleware('auth');
+
+
+

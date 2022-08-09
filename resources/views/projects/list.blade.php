@@ -11,7 +11,6 @@
             <th></th>
             <th>Title</th>
             <th>Slug</th>
-            <th>Type</th>
             <th>Created</th>
             <th></th>
             <th></th>
