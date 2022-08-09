@@ -12,6 +12,9 @@
             <a href="/console/employment/list">Manage Employment</a>
         </li>
         <li>
+            <a href="/console/education/list">Manage Education</a>
+        </li>
+        <li>
             <a href="/console/users/list">Manage Users</a>
         </li>
         <li>

@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employment extends Model
+class Education extends Model
 {
     use HasFactory;
-
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
-        'employer',
-        'description',
+        'institution_name',
+        'degree_type',
+        'degree',
         'start_month',
         'start_year',
         'end_month',
